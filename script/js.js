@@ -11,12 +11,27 @@ let passwords = document.querySelectorAll('user_password');
 let fields = form.querySelectorAll('.field');
 let error = document.querySelector('.error');
 
-
-
 form.addEventListener('submit', function (evt) {
     evt.preventDefault();
     removeError();
+    checkFields();
+    checkRadio();
+    checkPass();
+    checkCheckBox();
+});
 
+// Функция вывода ошибки на экран
+function checkError(text) {
+    // Создание span для каждой ошибки
+    let errorMessage = document.createElement('span');
+    errorMessage.className = 'error_message';
+    errorMessage.textContent = text;
+
+    return errorMessage;
+};
+
+// Функция проверки полей на заполненность
+function checkFields() {
     for (let i = 0; i < fields.length; i++) {
         let field = fields[i];
         // Если поле пустое
@@ -33,8 +48,10 @@ form.addEventListener('submit', function (evt) {
             field.style.borderBottomColor = 'green';
         }
     }
+}
 
-    // Перебор данных радиокнопки/гендер и вывод итога в консоль или ошибки на экран
+// Функция перебора данных радиокнопки/гендер и вывод итога в консоль или ошибки на экран
+function checkRadio() {
     let sex;
     for (sex of gender) {
         gender[sex] = sex;
@@ -47,28 +64,17 @@ form.addEventListener('submit', function (evt) {
         let errorMessage = checkError(`Пол не указан. Выберите пол`);
         error.append(errorMessage);
     }
+}
 
-    checkPass();
-
-    // Проверка наличия галки/подтверждения у checkbox
+// Функция проверки наличия галки/подтверждения у checkbox
+function checkCheckBox() {
     if (!confirmation.checked) {
         let errorMessage = checkError(`Подтвердите согласие на обработку персональных данных`);
         error.append(errorMessage);
     } else {
         console.log(`confirmation: yes`);
     }
-
-});
-
-// Функция вывода ошибки на экран
-function checkError(text) {
-    // Создание span для каждой ошибки
-    let errorMessage = document.createElement('span');
-    errorMessage.className = 'error_message';
-    errorMessage.textContent = text;
-
-    return errorMessage;
-};
+}
 
 // Очистка поля с ошибками
 function removeError() {
