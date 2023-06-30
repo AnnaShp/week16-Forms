@@ -1,0 +1,101 @@
+.div_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    width: 35em;
+    height: 40em;
+    border-left: 3px solid rgb(153, 158, 153);
+    border-bottom: 3px solid rgb(153, 158, 153);
+}
+
+div {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    width: 20em;
+    height: 1.5em;
+    border: transparent;
+}
+
+.gender,
+.data {
+    display: flex;
+    margin: 0 auto;
+}
+
+#gender1,
+#gender2,
+#agreement {
+    width: 3em;
+}
+
+.data {
+    width: 20em;
+}
+
+input,
+div {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+input {
+    border-bottom: 1px solid black;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+#btn_submit {
+    height: 2em;
+    width: 18em;
+    font-size: large;
+    background-color: rgb(95, 184, 145);
+    border: 2px solid rgb(101, 142, 112);
+}
+
+input:hover,
+select:hover {
+    background-color: rgb(223, 232, 226);
+}
+
+.password,
+.name,
+.email {
+    display: flex;
+    flex-direction: column;
+}
+
+.user_pass {
+    font-size: 12px;
+    width: 18em;
+}
+
+input:required:valid {
+    border-bottom: 2px solid green;
+}
+
+label {
+    font-size: smaller;
+    opacity: 0.4;
+}
+
+.data_yes {
+    opacity: 1;
+}
+
+.error {
+    flex-direction: column;
+}
+
+.error>span {
+    color: red;
+    font-size: small;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="./style/normalize.css">
+    </style>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <div class="div_form">
+        <h1>Форма для регистрации</h1>
+        <form novalidate>
+            <div class="name">
+                <input type="text" name="user_name" class="field" placeholder="Ваше имя" minlength="2" maxlength="20"
+                    id="name" pattern="^[А-ЯЁ][а-яё]*$" required>
+                <label for="user_name">Только русские буквы</label>
+            </div>
+            <div class="email">
+                <input type="text" name="user_email" class="field" placeholder="Ваш email" id="email"
+                    pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$" required>
+                <label for="user_email">В формате: name@mail.com</label>
+            </div>
+            <div class="age">
+                <input type="number" name="user_age" class="field" placeholder="Ваш возраст" id="age" required>
+            </div>
+            <div class="gender">
+                <label for="user_gender" id="gender">Укажите ваш пол</label>
+                <input type="radio" id="gender1" name="user_gender" class="field_radio" value="man">
+                <label for="gender1">М</label>
+                <input type="radio" id="gender2" name="user_gender" class="field_radio" value="woman">
+                <label for="gender1">Ж</label>
+            </div>
+            <div class="career">
+                <label for="user_career">Ваша профессия </label>
+                <select name="user_career" class="field" id="career" placeholder="Ваша профессия">
+                    <option value="">--Выберите из списка--</option>
+                    <option value="doctor">Врач</option>
+                    <option value="programmer">Программист</option>
+                    <option value="teacher">Учитель</option>
+                    <option value="designer">Дизайнер</option>
+                    <option value="engineer">Инженер</option>
+                    <option value="salesman">Продавец</option>
+                    <option value="other">Другое</option>
+                </select>
+            </div>
+            <div class="password">
+                <input type="password" name="user_password1" class="field"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$" placeholder="Ваш пароль" minlength="8"
+                    id="password1" required>
+                <label for="pass_title" class="user_pass">Длина пароля должна быть от 8 до 16 символов и включать одну
+                    заглавную букву, один символ, и одну цифру.</label>
+                <input type="password" name="user_password2" class="field"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$" placeholder="Повторите пароль" minlength="8"
+                    id="password2" required>
+            </div>
+            <div class="data">
+                <label for="user_yes" class="data_yes">Согласие на обработку персональных данных</label>
+                <input type="checkbox" name="user_yes" id="confirmation" required>
+            </div>
+            <div class="btn">
+                <input type="submit" name="btn_submit" id="btn_submit" />
+            </div>
+            <div class="error"></div>
+        </form>
+    </div>
+
+    <script src="./script/js.js"></script>
+</body>
+
+</html>
