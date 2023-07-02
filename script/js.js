@@ -51,19 +51,18 @@ function checkFields() {
 }
 
 // Функция перебора данных радиокнопки/гендер и вывод итога в консоль или ошибки на экран
+
 function checkRadio() {
     let sex;
     for (sex of gender) {
         gender[sex] = sex;
-    };
-
-    if (sex.checked) {
-        console.log(`gender: ${sex.value}`);
-
-    } else {
+        sex++;
+    }
+    if (!gender.value) {
         let errorMessage = checkError(`Пол не указан. Выберите пол`);
         error.append(errorMessage);
     }
+    else (console.log(`gender: ${gender.value}`));
 }
 
 // Функция проверки наличия галки/подтверждения у checkbox
@@ -76,7 +75,7 @@ function checkCheckBox() {
     }
 }
 
-// Очистка поля с ошибками
+// Очистка поля с ошибками и консоли
 function removeError() {
     // Определение места для вывода ошибок
     let errors = document.querySelectorAll('.error_message');
@@ -84,6 +83,7 @@ function removeError() {
     // Захатываем поля с ошибками и очищаем их
     for (let error of errors) {
         error.remove();
+        console.clear();
     }
 }
 
@@ -143,14 +143,11 @@ function checkPass() {
 
     }
 
-    else if (form.user_password1.value != form.user_password2.value) {
+    if (form.user_password1.value != form.user_password2.value) {
         let errorMessage = checkError('Пароли не совпадают');
         error.append(errorMessage);
     }
 }
-
-
-
 
 
 
