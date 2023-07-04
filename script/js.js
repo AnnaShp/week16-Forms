@@ -11,7 +11,7 @@ let passwords = document.querySelectorAll('user_password');
 let fields = form.querySelectorAll('.field');
 let error = document.querySelector('.error');
 
-form.addEventListener('submit', function (evt) {
+form.addEventListener('input', function (evt) {
     evt.preventDefault();
     removeError();
     checkFields();
