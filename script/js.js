@@ -108,53 +108,26 @@ function removeError() {
 
 // Функция проверки паролей на заполнение
 function checkPass() {
-    if (form.user_password1.value != '') {
+    if (form.user_password1.value === form.user_password2.value && form.user_password1.value!= '') {
         if (form.user_password1.value.length < 8) {
             let errorMessage = checkError('Пароль должен состоять минимум из 8 символов.');
             error.append(errorMessage);
             return false;
         }
         let re = /[0-9]/;
-        if (!re.test(form.user_password1.value)) {
+        if (!re.test(form.user_password1.value && form.user_password1.value)) {
             let errorMessage = checkError('Пароль должен содержать как минимум 1 число (0-9).');
             error.append(errorMessage);
             return false;
         }
         re = /[a-z]/;
-        if (!re.test(form.user_password1.value)) {
+        if (!re.test(form.user_password1.value && form.user_password1.value)) {
             let errorMessage = checkError('Пароль должен содержать как минимум 1 букву в нижнем регистре[a-z].');
             error.append(errorMessage);
             return false;
         }
         re = /[A-Z]/;
-        if (!re.test(form.user_password1.value)) {
-            let errorMessage = checkError('Пароль должен содержать как минимум 1 заглавную букву[A-Z].');
-            error.append(errorMessage);
-            return false;
-        }
-
-    }
-
-    else if (form.user_password2.value != '') {
-        if (form.user_password2.value.length < 8) {
-            let errorMessage = checkError('Пароль должен состоять минимум из 8 символов.');
-            error.append(errorMessage);
-            return false;
-        }
-        let re = /[0-9]/;
-        if (!re.test(form.user_password2.value)) {
-            let errorMessage = checkError('Пароль должен содержать как минимум 1 число (0-9).');
-            error.append(errorMessage);
-            return false;
-        }
-        re = /[a-z]/;
-        if (!re.test(form.user_password2.value)) {
-            let errorMessage = checkError('Пароль должен содержать как минимум 1 букву в нижнем регистре[a-z].');
-            error.append(errorMessage);
-            return false;
-        }
-        re = /[A-Z]/;
-        if (!re.test(form.user_password2.value)) {
+        if (!re.test(form.user_password1.value && form.user_password1.value)) {
             let errorMessage = checkError('Пароль должен содержать как минимум 1 заглавную букву[A-Z].');
             error.append(errorMessage);
             return false;
