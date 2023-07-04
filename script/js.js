@@ -16,8 +16,9 @@ form.addEventListener('input', function (evt) {
     removeError();
     checkFields();
     checkRadio();
-    checkPass();
+    checkSelect();
     checkCheckBox();
+    checkPass();
 });
 
 // Функция вывода ошибки на экран
@@ -51,7 +52,6 @@ function checkFields() {
 }
 
 // Функция перебора данных радиокнопки/гендер и вывод итога в консоль или ошибки на экран
-
 function checkRadio() {
     let sex;
     for (sex of gender) {
@@ -72,6 +72,25 @@ function checkCheckBox() {
         error.append(errorMessage);
     } else {
         console.log(`confirmation: yes`);
+    }
+}
+
+// Функция проверки выпадающего списка с профессией
+let select = document.querySelector('#career');
+function checkSelect() {
+    for (let option of select) {
+        select[option] = option;
+        option++;
+    }
+    if (!select.value) {
+        let errorMessage = checkError(`Поле "Ваша профессия" не заполнено.`);
+        error.append(errorMessage);
+        // Поля с ошибками подчеркиваем красным
+        select.style.borderBottomColor = 'red';
+    }
+    else {
+        console.log(`user_career: ${select.value}`);
+        select.style.borderBottomColor = 'green';
     }
 }
 
